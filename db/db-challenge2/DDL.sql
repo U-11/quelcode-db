@@ -30,14 +30,14 @@ CREATE TABLE rooms(
 CREATE TABLE rooms_users(
   users_id INT(11) NOT NULL REFERENCES users(id),
   rooms_id INT(11) NOT NULL REFERENCES rooms(id),
-  join_at DATETIME NOT NULL,
+  joined_at DATETIME NOT NULL,
   PRIMARY KEY(users_id,rooms_id)
 )
 
 --postsテーブル--
 CREATE TABLE posts(
   id INT(11) AUTO_INCREMENT PRIMARY KEY,
-  post_user_id INT(11) NOT NULL REFERENCES users(id),
+  created_user_id INT(11) NOT NULL REFERENCES users(id),
   rooms_id INT(11) NOT NULL REFERENCES rooms(id),
   post VARCHAR (1000) NOT NULL,
   file_name VARCHAR(100),
@@ -52,7 +52,7 @@ CREATE TABLE tasks(
   id INT(11) AUTO_INCREMENT PRIMARY KEY,
   description VARCHAR(1000) NOT NULL,
   rooms_id INT(11) NOT NULL REFERENCES rooms(id),
-  personel_id INT(11) NOT NULL REFERENCES users(id),
+  assigned_user_id INT(11) NOT NULL REFERENCES users(id),
   due DATETIME,
   done TINYINT(1) DEFAULT 0 NOT NULL,
   is_deleted TINYINT(1) DEFAULT 0 NOT NULL,
