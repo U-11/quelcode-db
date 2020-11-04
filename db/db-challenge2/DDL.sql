@@ -15,8 +15,8 @@ CREATE TABLE users(
 --roomsテーブル--
 CREATE TABLE rooms(
   id INT(11) AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(100) NOT NULL UNIQUE,
-  description VARCHAR(1000) NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  description VARCHAR(1000),
   send_file TINYINT(1) DEFAULT 0 NOT NULL,
   direct_chat TINYINT(1) DEFAULT 0 NOT NULL,
   is_deleted TINYINT(1) DEFAULT 0 NOT NULL,
