@@ -21,9 +21,9 @@ CREATE TABLE rooms(
   direct_chat TINYINT(1) DEFAULT 0 NOT NULL,
   is_deleted TINYINT(1) DEFAULT 0 NOT NULL,
   created_at DATETIME NOT NULL,
-  created_user_id INT(11) NOT NULL,
+  created_user_id INT(11) NOT NULL REFERENCES users(id),
   updated_at DATETIME NOT NULL,
-  updated_user_id INT(11) NOT NULL
+  updated_user_id INT(11) NOT NULL REFERENCES users(id)
 );
 
 --rooms_usersテーブル--
@@ -32,7 +32,7 @@ CREATE TABLE rooms_users(
   rooms_id INT(11) NOT NULL REFERENCES rooms(id),
   joined_at DATETIME NOT NULL,
   PRIMARY KEY(users_id,rooms_id)
-)
+);
 
 --postsテーブル--
 CREATE TABLE posts(
@@ -44,8 +44,8 @@ CREATE TABLE posts(
   is_deleted TINYINT(1) DEFAULT 0 NOT NULL,
   created_at DATETIME NOT NULL,
   updated_at DATETIME NOT NULL,
-  updated_user_id INT(11) NOT NULL
-)
+  updated_user_id INT(11) NOT NULL REFERENCES users(id)
+);
 
 --tasksテーブル--
 CREATE TABLE tasks(
@@ -57,7 +57,7 @@ CREATE TABLE tasks(
   done TINYINT(1) DEFAULT 0 NOT NULL,
   is_deleted TINYINT(1) DEFAULT 0 NOT NULL,
   created_at DATETIME NOT NULL,
-  created_user_id INT(11) NOT NULL,
+  created_user_id INT(11) NOT NULL REFERENCES users(id),
   updated_at DATETIME NOT NULL,
-  updated_user_id INT(11) NOT NULL
+  updated_user_id INT(11) NOT NULL REFERENCES users(id)
 );
