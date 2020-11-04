@@ -7,9 +7,9 @@ CREATE TABLE users(
   bio VARCHAR(1000),
   office_telephone VARCHAR(13),
   cell_phone VARCHAR(13),
-  delete_flag TINYINT(1) DEFAULT 0 NOT NULL,
-  created DATETIME NOT NULL,
-  updated TIMESTAMP NOT NULL
+  is_deleted TINYINT(1) DEFAULT 0 NOT NULL,
+  created_at DATETIME NOT NULL,
+  updated_at DATETIME NOT NULL
 );
 
 --roomsテーブル--
@@ -19,10 +19,10 @@ CREATE TABLE rooms(
   description VARCHAR(1000) NOT NULL,
   send_file TINYINT(1) DEFAULT 0 NOT NULL,
   direct_chat TINYINT(1) DEFAULT 0 NOT NULL,
-  delete_flag TINYINT(1) DEFAULT 0 NOT NULL,
-  created DATETIME NOT NULL,
+  is_deleted TINYINT(1) DEFAULT 0 NOT NULL,
+  created_at DATETIME NOT NULL,
   created_user_id INT(11) NOT NULL,
-  updated TIMESTAMP NOT NULL,
+  updated_at DATETIME NOT NULL,
   updated_user_id INT(11) NOT NULL
 );
 
@@ -41,8 +41,9 @@ CREATE TABLE posts(
   rooms_id INT(11) NOT NULL REFERENCES rooms(id),
   post VARCHAR (1000) NOT NULL,
   file_name VARCHAR(100),
-  created DATETIME NOT NULL,
-  updated TIMESTAMP NOT NULL,
+  is_deleted TINYINT(1) DEFAULT 0 NOT NULL,
+  created_at DATETIME NOT NULL,
+  updated_at DATETIME NOT NULL,
   updated_user_id INT(11) NOT NULL
 )
 
@@ -54,9 +55,9 @@ CREATE TABLE tasks(
   personel_id INT(11) NOT NULL REFERENCES users(id),
   due DATETIME,
   done TINYINT(1) DEFAULT 0 NOT NULL,
-  delete_flag TINYINT(1) DEFAULT 0 NOT NULL,
-  created DATETIME NOT NULL,
+  is_deleted TINYINT(1) DEFAULT 0 NOT NULL,
+  created_at DATETIME NOT NULL,
   created_user_id INT(11) NOT NULL,
-  updated TIMESTAMP NOT NULL,
+  updated_at DATETIME NOT NULL,
   updated_user_id INT(11) NOT NULL
 );
