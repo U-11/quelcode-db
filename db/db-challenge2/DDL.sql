@@ -5,7 +5,7 @@ CREATE TABLE users(
   password VARCHAR(100) NOT NULL,
   name VARCHAR(100) NOT NULL,
   bio VARCHAR(1000),
-  phone VARCHAR(13),
+  office_telephone VARCHAR(13),
   cell_phone VARCHAR(13),
   delete_flag TINYINT(1) DEFAULT 0 NOT NULL,
   created DATETIME NOT NULL,
