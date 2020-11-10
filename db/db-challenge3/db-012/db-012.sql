@@ -11,7 +11,7 @@ SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 UPDATE
   rooms
 SET
-  send_file=0,
+  allow_send_file=0,
   updated_user_id=1,
   updated_at=NOW()
 WHERE
