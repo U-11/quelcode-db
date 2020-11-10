@@ -17,11 +17,7 @@ CREATE TABLE rooms(
   id INT(11) AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
   description VARCHAR(1000),
-<<<<<<< Updated upstream
-  send_file TINYINT(1) DEFAULT 1 NOT NULL,
-=======
   allow_send_file TINYINT(1) DEFAULT 1 NOT NULL,
->>>>>>> Stashed changes
   direct_chat TINYINT(1) DEFAULT 0 NOT NULL,
   is_deleted TINYINT(1) DEFAULT 0 NOT NULL,
   created_at DATETIME NOT NULL,
