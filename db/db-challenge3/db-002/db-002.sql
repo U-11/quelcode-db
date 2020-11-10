@@ -3,7 +3,7 @@ INSERT INTO
 rooms(
   name,
   description,
-  send_file,
+  allow_send_file,
   direct_chat,
   is_deleted,
   created_at,
