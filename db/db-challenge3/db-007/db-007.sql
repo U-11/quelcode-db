@@ -7,8 +7,8 @@
 
 SELECT id,name,description,
 CASE
-WHEN send_file=0 THEN '許可'
-WHEN send_file=1 THEN '禁止' END AS send_file,
+WHEN allow_send_file=0 THEN '禁止'
+WHEN allow_send_file=1 THEN '許可' END AS allow_send_file,
 direct_chat,is_deleted,created_at,created_user_id,updated_at,updated_user_id
 FROM rooms
 WHERE is_deleted=0 AND description LIKE '%ダイレクトチャット'
